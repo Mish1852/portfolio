@@ -1,64 +1,81 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/Header.css';
+import { FaSun, FaMoon, FaBars, FaTimes } from 'react-icons/fa';
 
-interface HeaderProps {
-  darkMode: boolean;
-  toggleDarkMode: () => void;
-}
+const Header = () => {
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-const Header = ({ darkMode, toggleDarkMode }: HeaderProps) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  // Check for saved dark mode preference or set based on user's system preference
+  useEffect(() => {
+    const darkModePreference = localStorage.getItem('darkMode');
+    
+    if (darkModePreference === 'true') {
+      setIsDarkMode(true);
+      document.body.classList.add('dark-mode');
+    } else if (darkModePreference === null) {
+      // Check system preference if no saved preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDarkMode(prefersDark);
+      if (prefersDark) {
+        document.body.classList.add('dark-mode');
+      }
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    
+    if (!isDarkMode) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('darkMode', 'true');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('darkMode', 'false');
+    }
+  };
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
     <header className="header">
       <div className="container header-container">
-        <div className="logo">
-          <h1>Mishti Sharma</h1>
-        </div>
-
-        <button className="mobile-menu-btn" onClick={toggleMenu}>
-          <span className={`menu-icon ${menuOpen ? 'open' : ''}`}></span>
-        </button>
-
-        <nav className={`nav ${menuOpen ? 'open' : ''}`}>
+        <a href="#" className="logo">
+          <span>M</span>ishti
+        </a>
+        
+        <div className={`nav-menu ${isMenuOpen ? 'show-menu' : ''}`}>
           <ul className="nav-list">
-            <li className="nav-item"><a href="#home" onClick={() => setMenuOpen(false)}>Home</a></li>
-            <li className="nav-item"><a href="#about" onClick={() => setMenuOpen(false)}>About</a></li>
-            <li className="nav-item"><a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a></li>
-            <li className="nav-item"><a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
-            <li className="nav-item">
-              <button className="theme-toggle" onClick={toggleDarkMode}>
-                {darkMode ? (
-                  <>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <circle cx="12" cy="12" r="5"></circle>
-                      <line x1="12" y1="1" x2="12" y2="3"></line>
-                      <line x1="12" y1="21" x2="12" y2="23"></line>
-                      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                      <line x1="1" y1="12" x2="3" y2="12"></line>
-                      <line x1="21" y1="12" x2="23" y2="12"></line>
-                      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    Light Mode
-                  </>
-                ) : (
-                  <>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    Dark Mode
-                  </>
-                )}
-              </button>
+            <li>
+              <a href="#home" className="nav-link active" onClick={closeMenu}>Home</a>
+            </li>
+            <li>
+              <a href="#about" className="nav-link" onClick={closeMenu}>About</a>
+            </li>
+            <li>
+              <a href="#projects" className="nav-link" onClick={closeMenu}>Projects</a>
+            </li>
+            <li>
+              <a href="#contact" className="nav-link" onClick={closeMenu}>Contact</a>
             </li>
           </ul>
-        </nav>
+          
+          <div className="theme-toggle" onClick={toggleDarkMode}>
+            <div className="theme-toggle-circle">
+              {isDarkMode ? <FaSun className="light-icon" /> : <FaMoon className="dark-icon" />}
+            </div>
+          </div>
+        </div>
+        
+        <div className="mobile-nav-toggle" onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
     </header>
   );
