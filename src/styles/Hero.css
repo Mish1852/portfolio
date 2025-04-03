@@ -107,6 +107,42 @@
   gap: 0.5rem;
 }
 
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.social-links a {
+  color: var(--text-color);
+  font-size: 1.5rem;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 210, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode .social-links a {
+  background: rgba(0, 210, 255, 0.15);
+  border: 1px solid rgba(0, 210, 255, 0.1);
+}
+
+.social-links a:hover {
+  color: white;
+  background: var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode .social-links a:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 .hero-primary-btn {
   background: var(--gradient-primary);
   color: white;

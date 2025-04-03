@@ -94,7 +94,7 @@ const Contact = () => {
                 <FaEnvelope className="contact-info-icon" />
                 <div>
                   <h3>Email</h3>
-                  <p><a href="mailto:mr.mishti.95@gmail.com">mr.mishti.95@gmail.com</a></p>
+                  <p><a href="mailto:mishti.sharma2024@nst.rishihood.edu.in">mishti.sharma2024@nst.rishihood.edu.in</a></p>
                 </div>
               </div>
               
@@ -102,7 +102,7 @@ const Contact = () => {
                 <FaMapMarkerAlt className="contact-info-icon" />
                 <div>
                   <h3>Location</h3>
-                  <p>Ghaziabad, India</p>
+                  <p>Delhi, India</p>
                 </div>
               </div>
             </div>

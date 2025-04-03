@@ -1,48 +1,45 @@
+import { FaArrowDown, FaGithub, FaLinkedin } from 'react-icons/fa';
 import '../styles/Hero.css';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 
 const Hero = () => {
   return (
     <section id="home" className="hero">
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-6 hero-content">
-            <h1 className="hero-title" data-text="Hi, I'm Mishti Sharma">
-              Hi, I'm <span className="highlight">Mishti Sharma</span>
-            </h1>
-            <p className="hero-subtitle">
-              A passionate Full Stack Developer crafting immersive digital experiences and cutting-edge web applications with creativity and technical precision.
-            </p>
-            <div className="hero-buttons">
-              <a href="#projects" className="btn btn-primary">
-                Explore My Work
-              </a>
-              <a href="#contact" className="btn btn-secondary">
-                Get In Touch
-              </a>
-            </div>
-            <div className="social-links">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                <FaGithub />
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                <FaLinkedin />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-link">
-                <FaTwitter />
-              </a>
-              <a href="mailto:mr.mishti.95@gmail.com" className="social-link">
-                <FaEnvelope />
-              </a>
-            </div>
+      <div className="container hero-container">
+        <div className="hero-content">
+          <p className="hero-intro">Hello, I'm</p>
+          <h1 className="hero-title">Mishti Sharma</h1>
+          <p className="hero-subtitle">
+            A <span className="highlight">student developer</span> passionate about learning web technologies and algorithms. Currently focusing on HTML, CSS, JavaScript, React, and DSA.
+          </p>
+          
+          <div className="hero-btns">
+            <a href="#projects" className="hero-btn hero-primary-btn">
+              View My Work
+            </a>
+            <a href="#contact" className="hero-btn hero-secondary-btn">
+              Contact Me
+            </a>
           </div>
-          <div className="col-lg-6 hero-image-container">
-            <div className="profile-image">
-              <img src="/profile.jpg" alt="Mishti Sharma" />
-            </div>
+          
+          <div className="social-links">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <FaGithub />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin />
+            </a>
           </div>
         </div>
+        
+        <div className="profile-image">
+          <img src="/mishti-profile.jpg" alt="Mishti Sharma" />
+        </div>
       </div>
+      
+      <a href="#about" className="scroll-down">
+        <span>Scroll Down</span>
+        <FaArrowDown />
+      </a>
     </section>
   );
 };

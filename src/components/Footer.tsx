@@ -12,11 +12,11 @@ const Footer: React.FC = () => {
           <div className="footer-column">
             <h3 className="footer-title">About Me</h3>
             <p className="footer-text">
-              A passionate full-stack developer specializing in creating innovative digital experiences with modern technologies.
+              A passionate student developer learning HTML, CSS, JavaScript, React and DSA to create innovative digital experiences.
             </p>
             <div className="footer-info">
-              <p><FaEnvelope className="footer-icon" /> mishti.sharma@gmail.com</p>
-              <p><FaMapMarkerAlt className="footer-icon" /> San Francisco Bay Area, CA</p>
+              <p><FaEnvelope className="footer-icon" /> mishti.sharma2024@nst.rishihood.edu.in</p>
+              <p><FaMapMarkerAlt className="footer-icon" /> Delhi, India</p>
             </div>
           </div>
           

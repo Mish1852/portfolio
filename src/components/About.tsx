@@ -1,54 +1,71 @@
-import "../styles/About.css";
+import React from 'react';
+import '../styles/About.css';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaCode } from 'react-icons/fa';
 
-const About = () => {
-  const skills = [
-    "JavaScript", "TypeScript", "React", "Node.js",
-    "HTML5", "CSS3", "SASS", "Tailwind CSS",
-    "MongoDB", "Express.js", "Next.js", "Redux",
-    "Git", "RESTful APIs", "Responsive Design", "UI/UX Design"
-  ];
-
+const About: React.FC = () => {
   return (
-    <section id="about" className="about-container">
+    <section id="about" className="about">
       <div className="container">
-        <h2 className="about-title">About Me</h2>
-        <p className="about-subtitle">
-          Learn more about my skills, experience, and what drives me as a developer.
-        </p>
-
+        <h2 className="section-title">About Me</h2>
+        
         <div className="about-content">
           <div className="about-text">
-            <p className="about-description">
-              Hi there! I'm a <span className="about-highlight">Full Stack Web Developer</span> with a passion for creating beautiful, responsive, and user-friendly web applications.
-              With a strong foundation in both front-end and back-end technologies, I enjoy turning complex problems into simple, elegant solutions.
+            <p>
+              Hello! I'm Mishti, a passionate student developer currently focused on building my foundation in web development 
+              and computer science. I'm on a journey to master the core technologies of modern web development.
             </p>
-            
-            <p className="about-description">
-              My journey in web development began during my university days, and since then I've been continuously learning and improving my skills. I believe in writing clean, maintainable code and staying up-to-date with the latest industry trends and best practices.
+            <p>
+              My goal is to become proficient in both frontend and backend technologies. I enjoy the process of 
+              learning and applying new concepts to create functional and visually appealing web applications.
             </p>
-            
-            <p className="about-description">
-              When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying outdoor activities. I'm always open to new challenges and opportunities to grow as a developer.
+            <p>
+              When I'm not coding, I enjoy exploring new technologies, solving algorithm problems, and continually 
+              expanding my knowledge in the ever-evolving field of web development.
             </p>
-
+          </div>
+          
+          <div className="skills">
+            <h3>Skills I'm Learning</h3>
             <div className="skills-container">
-              <h3 className="skills-title">My Skills</h3>
-              <div className="skills-list">
-                {skills.map((skill, index) => (
-                  <span key={index} className="skill-item">
-                    {skill}
-                  </span>
-                ))}
+              <div className="skill-card">
+                <FaHtml5 className="skill-icon html" />
+                <h4>HTML</h4>
+                <p>Building the structure of web pages with semantic HTML5 elements.</p>
+              </div>
+              
+              <div className="skill-card">
+                <FaCss3Alt className="skill-icon css" />
+                <h4>CSS</h4>
+                <p>Styling web pages with CSS3, including Flexbox and Grid layouts.</p>
+              </div>
+              
+              <div className="skill-card">
+                <FaJs className="skill-icon js" />
+                <h4>JavaScript</h4>
+                <p>Adding interactivity to websites with modern JavaScript (ES6+).</p>
+              </div>
+              
+              <div className="skill-card">
+                <FaReact className="skill-icon react" />
+                <h4>React</h4>
+                <p>Building user interfaces with React's component-based architecture.</p>
+              </div>
+              
+              <div className="skill-card">
+                <FaCode className="skill-icon dsa" />
+                <h4>DSA</h4>
+                <p>Learning data structures and algorithms to write efficient code.</p>
               </div>
             </div>
           </div>
-
-          <div className="about-image-container">
-            <img
-              src="/about-image.jpg"
-              alt="About Me"
-              className="about-image"
-            />
+          
+          <div className="education">
+            <h3>Education</h3>
+            <div className="education-item">
+              <h4>Computer Science</h4>
+              <p>Rishihood University, Delhi</p>
+              <p>Currently pursuing my degree with a focus on web development and software engineering.</p>
+            </div>
           </div>
         </div>
       </div>
